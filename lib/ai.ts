@@ -39,7 +39,7 @@ export async function aiJson<T>(system: string, user: string): Promise<{ data: T
             { role: "user", content: user },
           ],
         }),
-        signal: AbortSignal.timeout(20000),
+        signal: AbortSignal.timeout(9000),
       });
       if (!res.ok) continue;
       const json = (await res.json()) as { choices?: { message?: { content?: string } }[] };
